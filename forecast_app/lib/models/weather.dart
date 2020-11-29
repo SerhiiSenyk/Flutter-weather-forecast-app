@@ -12,9 +12,11 @@ class Weather
     double temp;
     int cloudsMid;
     int cloudsLow;
+    double snow;
+    int code;
     Weather(this.city, this.windDirection, this.pressure,
-        this.clouds, this.datetime, this.minTemp,
-        this.maxTemp, this.temp, this.cloudsLow, this.cloudsMid);
+        this.clouds, this.datetime, this.minTemp, this.maxTemp,
+        this.temp, this.cloudsLow, this.cloudsMid, this.snow, this.code);
 
     Weather.fromJSON(Map<String, dynamic> json, int index)
     {
@@ -27,5 +29,7 @@ class Weather
       temp = json['data'][index]['temp'].toDouble();
       cloudsMid = json['data'][index]['clouds_mid'];
       cloudsLow = json['data'][index]['clouds_low'];
+      snow = json['data'][index]['snow'].toDouble();
+      code =  json['data'][index]['weather']['code'];
     }
 }
